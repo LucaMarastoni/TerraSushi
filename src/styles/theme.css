@@ -1,0 +1,24 @@
+:root {
+  --bg: #0b0b0c;
+  --bg2: #121316;
+  --ink: #0f1013;
+  --text: #ece8e1;
+  --muted: #a8adb6;
+  --line: rgba(232, 236, 245, 0.18);
+  --accent: #c9b896;
+  --accentSoft: rgba(201, 184, 150, 0.14);
+  --shadowSoft: 0 10px 26px rgba(0, 0, 0, 0.22);
+  --radius: 0.7rem;
+  --radius2: 1.15rem;
+
+  /* Backward-compatible aliases for existing classes. */
+  --gold: var(--accent);
+  --surface: rgba(255, 255, 255, 0.03);
+  --surface-2: rgba(255, 255, 255, 0.06);
+  --shadow: rgba(0, 0, 0, 0.28);
+  --radius-sm: var(--radius);
+  --radius-md: 0.9rem;
+  --radius-lg: var(--radius2);
+
+  --container: 1120px;
+}
