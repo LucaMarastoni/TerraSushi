@@ -3,9 +3,13 @@ import Section from './Section';
 const DELIVERY_ITEMS = [
   {
     id: 'hours',
-    label: 'Orari Consegna',
-    value: 'Mar–Dom 11:30–15:00',
-    detail: '18:30–23:00 • Lunedì chiuso'
+    label: 'ORARI CONSEGNA',
+    dayRange: 'Mar–Dom',
+    slots: [
+      { tag: 'Pranzo', time: '11:30–15:00' },
+      { tag: 'Cena', time: '18:30–23:00' }
+    ],
+    note: 'Lunedì chiuso'
   },
   {
     id: 'fee',
@@ -31,35 +35,40 @@ export default function Delivery({ orderLink }) {
       className="section-delivery"
     >
       <div className="delivery-layout">
-        <article className="panel delivery-hero-card">
-          <p className="delivery-pill">Delivery Terra Sushi</p>
-          <p className="delivery-intro">
-            Goditi i sapori autentici di Terra Sushi direttamente a casa. Ordina online e ricevi i
-            tuoi piatti preferiti in pochi minuti.
-          </p>
-
-          <div className="delivery-highlights" aria-label="Punti chiave consegna">
-            <p>Pranzo e cena da martedì a domenica</p>
-            <p>Copertura Verona e aree limitrofe</p>
-          </div>
-
-          <a href={orderLink} className="inline-cta delivery-cta">
-            Ordina ora
-          </a>
-        </article>
-
         <div className="delivery-grid">
           {DELIVERY_ITEMS.map((item) => (
             <article key={item.id} className={`panel delivery-item delivery-item--${item.id}`}>
               <p className="delivery-item-label">{item.label}</p>
-              <p className="delivery-item-value">{item.value}</p>
-              <p className="delivery-item-detail">{item.detail}</p>
+              {item.id === 'hours' ? (
+                <div className="delivery-hours-block">
+                  <p className="delivery-hours-day">{item.dayRange}</p>
+                  <div className="delivery-hours-grid" aria-label="Orari consegna pranzo e cena">
+                    {item.slots.map((slot) => (
+                      <div key={slot.tag} className="delivery-hours-row">
+                        <span className="delivery-hours-tag">{slot.tag}</span>
+                        <span className="delivery-hours-time">{slot.time}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="delivery-hours-note">{item.note}</p>
+                </div>
+              ) : (
+                <>
+                  <p className="delivery-item-value">{item.value}</p>
+                  <p className="delivery-item-detail">{item.detail}</p>
+                </>
+              )}
             </article>
           ))}
         </div>
+
+        <div className="delivery-actions">
+          <a href={orderLink} className="inline-cta delivery-cta">
+            Ordina ora
+          </a>
+        </div>
       </div>
 
-      <p className="delivery-note">*Regole consegna soggette a conferma*</p>
     </Section>
   );
 }
