@@ -5,6 +5,7 @@ import Delivery from './components/Delivery';
 import Location from './components/Location';
 import Footer from './components/Footer';
 import MobileBottomBar from './components/MobileBottomBar';
+import SmoothFollower from './components/SmoothFollower';
 
 // Replace these placeholders with real links/phone numbers.
 const LINKS = {
@@ -31,6 +32,7 @@ const NAV_ITEMS = [
 export default function App() {
   return (
     <>
+      <SmoothFollower />
       <Navbar items={NAV_ITEMS} />
       <Hero links={LINKS} />
 

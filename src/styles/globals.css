@@ -47,6 +47,47 @@ video {
   outline-offset: 3px;
 }
 
+.smooth-follower {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 520;
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.smooth-follower--visible {
+  opacity: 1;
+}
+
+.smooth-follower__dot,
+.smooth-follower__ring {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+}
+
+.smooth-follower__dot {
+  width: 8px;
+  height: 8px;
+  background: rgba(201, 184, 150, 0.94);
+}
+
+.smooth-follower__ring {
+  border: 1px solid rgba(236, 232, 225, 0.76);
+  background: rgba(255, 255, 255, 0.01);
+  transition:
+    width 300ms ease,
+    height 300ms ease,
+    border-color 300ms ease,
+    background 300ms ease;
+}
+
+.smooth-follower--hover .smooth-follower__ring {
+  border-color: rgba(201, 184, 150, 0.86);
+  background: rgba(201, 184, 150, 0.06);
+}
+
 .container {
   width: min(var(--container), 92vw);
   margin-inline: auto;
