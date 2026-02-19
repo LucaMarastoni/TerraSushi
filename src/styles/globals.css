@@ -976,6 +976,24 @@ video {
   gap: 0.38rem;
 }
 
+.footer-credit {
+  padding-top: 0.95rem;
+  border-top: 1px solid rgba(232, 236, 245, 0.1);
+  text-align: center;
+}
+
+.footer-credit a {
+  color: rgba(236, 232, 225, 0.72);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: color 220ms ease;
+}
+
+.footer-credit a:hover {
+  color: var(--accent);
+}
+
 .mobile-bottom-bar {
   position: fixed;
   left: 0;

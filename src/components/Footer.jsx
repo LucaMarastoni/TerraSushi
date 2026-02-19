@@ -77,6 +77,12 @@ export default function Footer({ links }) {
           <p>*Informazioni e disponibilità soggette a conferma.</p>
           <p>© {new Date().getFullYear()} Terra Sushi Verona. Tutti i diritti riservati.</p>
         </div>
+
+        <div className="footer-credit">
+          <a href="https://lucamarastoni.eu" target="_blank" rel="noreferrer">
+            Realizzato da Luca Marastoni Digital Solutions
+          </a>
+        </div>
       </div>
     </motion.footer>
   );
