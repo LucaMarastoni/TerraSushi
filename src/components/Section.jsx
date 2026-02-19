@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 
 export default function Section({ id, eyebrow, title, subtitle, className = '', children }) {
   const reduceMotion = useReducedMotion();
+  const headingId = title ? `${id}-title` : undefined;
 
   const reveal = {
     hidden: { opacity: 0, y: 28 },
@@ -16,6 +17,8 @@ export default function Section({ id, eyebrow, title, subtitle, className = '', 
     <motion.section
       id={id}
       className={`section ${className}`.trim()}
+      aria-label={title || eyebrow || id}
+      aria-labelledby={headingId}
       initial={reduceMotion ? false : 'hidden'}
       whileInView={reduceMotion ? undefined : 'visible'}
       viewport={{ once: true, amount: 0.2 }}
@@ -23,7 +26,7 @@ export default function Section({ id, eyebrow, title, subtitle, className = '', 
     >
       <div className="container section-inner">
         {eyebrow ? <p className="section-eyebrow">{eyebrow}</p> : null}
-        {title ? <h2 className="section-title">{title}</h2> : null}
+        {title ? <h2 id={headingId} className="section-title">{title}</h2> : null}
         {subtitle ? <p className="section-subtitle">{subtitle}</p> : null}
         <div className="section-content">{children}</div>
       </div>

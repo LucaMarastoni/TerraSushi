@@ -5,13 +5,12 @@ import Delivery from './components/Delivery';
 import Location from './components/Location';
 import Footer from './components/Footer';
 import MobileBottomBar from './components/MobileBottomBar';
-import SeoHead from './components/SeoHead';
 
 // Replace these placeholders with real links/phone numbers.
 const LINKS = {
-  menu: '#',
-  poke: '#',
-  gluten: '#',
+  menu: 'https://drive.google.com/file/d/1BTLteNcofVvnnloxTJr3LkiG-kQiah1R/view',
+  poke: 'https://drive.google.com/file/d/1wBoEiZ8mVcHruEmXUxW5zlpG1ByyrF7J/view',
+  gluten: 'https://drive.google.com/file/d/1kFRD2I6iYmky-F9oNIjhglRpwcVE4rov/view',
   delivery: '#delivery',
   reviews: '#reviews',
   location: '#location',
@@ -32,7 +31,6 @@ const NAV_ITEMS = [
 export default function App() {
   return (
     <>
-      <SeoHead mapsLink={LINKS.maps} />
       <Navbar items={NAV_ITEMS} />
       <Hero links={LINKS} />
 

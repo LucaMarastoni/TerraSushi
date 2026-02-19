@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Update this URL with your production GitHub Pages path -->
+  <url>
+    <loc>https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+</urlset>

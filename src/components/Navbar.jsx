@@ -82,13 +82,13 @@ export default function Navbar({ items }) {
   }, [isOpen]);
 
   return (
-    <header className={`navbar-wrap ${isScrolled ? 'navbar--scrolled' : ''}`}>
-      <div className="container navbar">
+    <div className={`navbar-wrap ${isScrolled ? 'navbar--scrolled' : ''}`}>
+      <nav className="container navbar" aria-label="Navigazione principale">
         <a href="#top" className="brand" aria-label="Terra Sushi home">
           TERRA SUSHI
         </a>
 
-        <nav className="desktop-nav" aria-label="Navigazione principale">
+        <div className="desktop-nav">
           <ul>
             {items.map((item) => (
               <li key={item.href}>
@@ -96,7 +96,7 @@ export default function Navbar({ items }) {
               </li>
             ))}
           </ul>
-        </nav>
+        </div>
 
         <button
           type="button"
@@ -110,7 +110,7 @@ export default function Navbar({ items }) {
           <span />
           <span />
         </button>
-      </div>
+      </nav>
 
       {isOpen ? (
         <div className="menu-overlay" role="presentation" onClick={closeMenu}>
@@ -145,6 +145,6 @@ export default function Navbar({ items }) {
           </aside>
         </div>
       ) : null}
-    </header>
+    </div>
   );
 }

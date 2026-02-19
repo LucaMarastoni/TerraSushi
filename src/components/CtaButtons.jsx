@@ -1,9 +1,9 @@
 import { motion, useReducedMotion } from 'framer-motion';
 
-const PRIMARY_BUTTONS = [
-  { key: 'menu', label: 'Sfoglia il menù', variant: 'primary' },
-  { key: 'poke', label: 'Menù Poké', variant: 'secondary' },
-  { key: 'gluten', label: 'Menù senza glutine', variant: 'secondary' }
+const PRIMARY_CTA = { key: 'menu', label: 'Sfoglia il menù' };
+const EDITORIAL_LINKS = [
+  { key: 'poke', label: 'Menù Poké' },
+  { key: 'gluten', label: 'Menù senza glutine' }
 ];
 
 const UTILITY_BUTTONS = [
@@ -30,11 +30,11 @@ function ChatIcon() {
 export default function CtaButtons({ links }) {
   const reduceMotion = useReducedMotion();
 
-  const row = {
+  const group = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.1, delayChildren: 0.12 }
+      transition: { staggerChildren: 0.1, delayChildren: 0.08 }
     }
   };
 
@@ -43,43 +43,61 @@ export default function CtaButtons({ links }) {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.74, ease: [0.22, 1, 0.36, 1] }
+      transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] }
     }
   };
 
   const interaction = reduceMotion
     ? {}
     : {
-        whileHover: { y: -2, scale: 1.004 },
         whileTap: { y: 0, scale: 0.99 }
       };
 
   return (
     <div className="hero-cta-stack" role="group" aria-label="Azioni rapide Terra Sushi">
-      <div className="hero-cta-primary-frame">
-        <motion.div
-          className="hero-cta-primary"
-          variants={reduceMotion ? undefined : row}
-          initial={reduceMotion ? false : 'hidden'}
-          animate={reduceMotion ? undefined : 'visible'}
-        >
-          {PRIMARY_BUTTONS.map((itemData) => (
+      <motion.a
+        href={links[PRIMARY_CTA.key]}
+        className="hero-btn hero-btn--primary"
+        aria-label="Sfoglia il menù completo di Terra Sushi"
+        initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+        animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        {...interaction}
+      >
+        <span className="hero-btn-label">{PRIMARY_CTA.label}</span>
+        <span className="hero-btn-arrow" aria-hidden="true">
+          →
+        </span>
+      </motion.a>
+
+      <motion.div
+        className="hero-quick-nav-wrap"
+        variants={reduceMotion ? undefined : group}
+        initial={reduceMotion ? false : 'hidden'}
+        animate={reduceMotion ? undefined : 'visible'}
+      >
+        <nav className="hero-quick-nav" aria-label="Scorciatoie menu">
+          {EDITORIAL_LINKS.map((itemData) => (
             <motion.a
               key={itemData.key}
               href={links[itemData.key]}
-              className={`hero-btn hero-btn--${itemData.variant}`}
+              className="hero-nav-row"
+              aria-label={`Apri ${itemData.label} di Terra Sushi`}
               variants={reduceMotion ? undefined : item}
               {...interaction}
             >
-              <span className="hero-btn-label">{itemData.label}</span>
+              <span className="hero-nav-label">{itemData.label}</span>
+              <span className="hero-nav-chev" aria-hidden="true">
+                →
+              </span>
             </motion.a>
           ))}
-        </motion.div>
-      </div>
+        </nav>
+      </motion.div>
 
       <motion.div
         className="hero-utility"
-        variants={reduceMotion ? undefined : row}
+        variants={reduceMotion ? undefined : group}
         initial={reduceMotion ? false : 'hidden'}
         animate={reduceMotion ? undefined : 'visible'}
       >

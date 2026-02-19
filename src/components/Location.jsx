@@ -6,7 +6,7 @@ export default function Location({ mapsLink }) {
       id="location"
       eyebrow="Dove Siamo"
       title="Raggiungi Terra Sushi"
-      subtitle="Via Monfalcone 2, 37135 Verona."
+      subtitle="Via Monfalcone 2, 37135 Verona, in zona Borgo Roma."
       className="section-location"
     >
       <div className="panel location-map">

@@ -27,7 +27,7 @@ export default function Delivery({ orderLink }) {
       id="delivery"
       eyebrow="Consegna"
       title="Consegne a Domicilio"
-      subtitle="GUSTA IL SAPORE DI TERRA SUSHI A CASA TUA"
+      subtitle="Il tuo ristorante sushi a Verona, zona Borgo Roma, direttamente a casa."
       className="section-delivery"
     >
       <div className="delivery-layout">
