@@ -6,8 +6,8 @@ const DELIVERY_ITEMS = [
     label: 'ORARI CONSEGNA',
     dayRange: 'Mar–Dom',
     slots: [
-      { tag: 'Pranzo', time: '11:30–15:00' },
-      { tag: 'Cena', time: '18:30–23:00' }
+      { tag: 'Pranzo', time: '12:00–15:00' },
+      { tag: 'Cena', time: '19:00–22:30' }
     ],
     note: 'Lunedì chiuso'
   },
